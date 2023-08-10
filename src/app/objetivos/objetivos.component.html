@@ -1,0 +1,89 @@
+
+<ion-content>
+
+  <div class="divitext">
+    <h3>
+¿Cuáles son los objetivos que quieres alcanzar a través de tu plan de alimentación?   </h3>
+  
+  </div>
+
+    <ion-list class="lista">
+
+      <!-- <ion-label slot="start">Tipo de Dieta</ion-label> -->
+
+
+      <ion-item   [ngClass]="{'shadedItem': objetivo.filli === 'solid'}"  [disabled]="objetivo.selectedrest"  detail="false" type="button" *ngFor="let objetivo of objetivos"  value="objetivo.nombre" button="true"  lines="inset" (click)="objetivoChange($event)" >{{objetivo.nombre}}
+        <!-- [routerLink]="['/restricciones']"  -->  
+      </ion-item>  
+      <ion-item no-lines *ngIf="showOtroObjetivo" slot="start">
+        <ion-label floating color="primary">Otro objetivo</ion-label>
+        <ion-input type="text" (ionChange)="notifyObjetivoInput($event)" class="textcolor" formControlName="Otra"
+          maxlength="50" tabindex="1"></ion-input>
+      </ion-item>
+
+    </ion-list>
+    
+    
+
+    <!-- <ion-item>
+      <ion-label slot="start">Restricciones</ion-label>
+      <ion-select  class="mydate" formControlName="bankselect" interface="popover"
+        (ionChange)="restriccionChange($event)" placeholder="Selecciona tus Restricciones" [multiple] ="true">
+        <ion-select-option *ngFor="let restriccion of restricciones"
+          [value]="restriccion" [disabled]="restriccion.selectedrest">{{restriccion.nombre}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+      <ion-item no-lines *ngIf="showOtraRestriccion" slot="start">
+        <ion-label floating color="primary">Otra restricción</ion-label>
+        <ion-input type="text" (ionChange)="notifyRestriccionInput($event)" class="textcolor" formControlName="Otra"
+          maxlength="50" tabindex="1"></ion-input>
+      </ion-item> -->
+
+
+    
+
+
+
+
+    
+
+
+    <!-- <ion-item>
+      <ion-input type="date" placeholder="Dieta" [value]="dietavalue" (ionInput)="onInputDieta($event)">
+      </ion-input>
+
+
+
+    </ion-item> -->
+
+
+
+    <table class="tablabotones">
+      <tr class="trbotones">
+      <td class="tdbotones">
+        <div class="botonatrasdiv">
+          <ion-button class="atras" [routerLink]="['/tipodieta']" >
+            <ion-icon slot="start" name="chevron-back-outline"></ion-icon>
+            Atrás
+          </ion-button>
+        </div>
+      </td>
+      <td class="tdbotones">
+        <div class="botoncondiv">
+          <ion-button class="botoncon" (click)="setObjetivos()" [disabled]="continua==true" [routerLink]="['/objetivos']">
+            <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+            Continuar
+          </ion-button>
+        </div>
+      </td>
+      </tr>
+      </table>
+
+
+
+
+
+
+
+
+</ion-content>

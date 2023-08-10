@@ -1,0 +1,87 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>Tu Dieta</ion-title>
+    
+  </ion-toolbar>
+</ion-header> -->
+
+
+<ion-content>
+
+
+  <div class="divitext">
+    <h3>
+Selecciona el tipo de dieta que llevas actualmente    </h3>
+  
+  </div>
+
+    <ion-list class="lista">
+
+      <!-- <ion-label slot="start">Tipo de Dieta</ion-label> -->
+
+
+      <ion-item   [ngClass]="{'shadedItem': dieta.filli === 'solid'}"  detail="false" type="button" *ngFor="let dieta of dietas"  value="dieta.nombre" button="true"  lines="inset" (click)="dietaChange($event)" >{{dieta.nombre}}
+        <ion-icon class="red"  slot="end" [src]="dieta.icono" style="zoom:1.2;" ></ion-icon>
+        <!-- [routerLink]="['/restricciones']"  -->  
+      </ion-item>  
+      <ion-item no-lines *ngIf="showOtraDieta" slot="start">
+        <ion-label floating color="primary">Otro tipo de dieta</ion-label>
+        <ion-input type="text" (ionChange)="notifyDietaInput($event)" class="textcolor" formControlName="Otra"
+          maxlength="50" tabindex="1"></ion-input>
+      </ion-item>
+
+    </ion-list>
+
+    <!-- [routerLink]="routerlinkvar" -->
+
+    <!-- <ion-item>
+      <ion-label slot="start">Tipo de Dieta</ion-label>
+      <ion-select class="mydate" formControlName="bankselect" interface="popover" (ionChange)="dietaChange($event)"
+        placeholder="Selecciona tu dieta">
+        <ion-select-option *ngFor="let dieta of dietas" [value]="dieta">{{dieta.nombre}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+      <ion-item no-lines *ngIf="showOtraDieta" slot="start">
+        <ion-label floating color="primary">Otro tipo de dieta</ion-label>
+        <ion-input type="text" (ionChange)="notifyDietaInput($event)" class="textcolor" formControlName="Otra"
+          maxlength="50" tabindex="1"></ion-input>
+      </ion-item>
+     -->
+
+
+     <table class="tablabotones">
+      <tr class="trbotones">
+      <td class="tdbotones">
+        <div class="botonatrasdiv">
+          <ion-button class="atras" [routerLink]="['/persona']" >
+            <ion-icon slot="start" name="chevron-back-outline"></ion-icon>
+            Atrás
+          </ion-button>
+        </div>
+      </td>
+      <td class="tdbotones">
+        <div class="botoncondiv">
+          <ion-button class="botoncon" (click)="setDieta()" [disabled]="continua==true" [routerLink]="['/restricciones']">
+            <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+            Continuar
+          </ion-button>
+        </div>
+      </td>
+      </tr>
+      </table>
+
+
+      
+    
+      
+   
+
+
+
+  <!-- <ion-button (click)="getPersona()"  expand="block" fill="clear" shape="round">
+    traer objeto
+  </ion-button> -->
+
+
+
+</ion-content>

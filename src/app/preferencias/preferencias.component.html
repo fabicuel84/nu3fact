@@ -1,0 +1,105 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Tus Preferencias</ion-title>
+    <ion-button slot="start" [routerLink]="['/persona']" expand="block" fill="clear" shape="round">
+      atrás
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label slot="start">Tipo de Dieta</ion-label>
+      <ion-select class="mydate" formControlName="bankselect" interface="popover" (ionChange)="dietaChange($event)"
+        placeholder="Selecciona tu dieta">
+        <ion-select-option *ngFor="let dieta of dietas" [value]="dieta">{{dieta.nombre}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+      <ion-item no-lines *ngIf="showOtraDieta" slot="start">
+        <ion-label floating color="primary">Otro tipo de dieta</ion-label>
+        <ion-input type="text" (ionChange)="notifyDietaInput($event)" class="textcolor" formControlName="Otra"
+          maxlength="50" tabindex="1"></ion-input>
+      </ion-item>
+    
+
+    <ion-item>
+      <ion-label slot="start">Restricciones</ion-label>
+      <ion-select  class="mydate" formControlName="bankselect" interface="popover"
+        (ionChange)="restriccionChange($event)" placeholder="Selecciona tus Restricciones" [multiple] ="true">
+        <ion-select-option *ngFor="let restriccion of restricciones"
+          [value]="restriccion" [disabled]="restriccion.selectedrest">{{restriccion.nombre}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+      <ion-item no-lines *ngIf="showOtraRestriccion" slot="start">
+        <ion-label floating color="primary">Otra restricción</ion-label>
+        <ion-input type="text" (ionChange)="notifyRestriccionInput($event)" class="textcolor" formControlName="Otra"
+          maxlength="50" tabindex="1"></ion-input>
+      </ion-item>
+
+
+    
+
+
+
+    <ion-item>
+      <ion-label slot="start">Preferencias</ion-label>
+      <ion-select class="mydate" formControlName="bankselect" interface="popover"
+        (ionChange)="preferenciasChange($event)" placeholder="Selecciona tus Preferencias" [multiple] ="true">
+        <ion-select-option *ngFor="let preferencia of preferencias"
+          [value]="preferencia">{{preferencia.nombre}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+      <ion-item no-lines *ngIf="showOtraPreferencia" slot="start">
+        <ion-label floating color="primary">Otra preferencia</ion-label>
+        <ion-input type="text" (ionChange)="notifyPreferenciaInput($event)" class="textcolor" formControlName="Otra"
+          maxlength="50" tabindex="1"></ion-input>
+      </ion-item>
+
+
+    
+
+
+    <ion-item>
+      <ion-label slot="start">Objetivos</ion-label>
+      <ion-select class="mydate" formControlName="bankselect" interface="popover"
+        (ionChange)="objetivosChange($event)" placeholder="Selecciona tus Objetivos" [multiple] ="true">
+        <ion-select-option *ngFor="let objetivo of objetivos"
+          [value]="objetivo">{{objetivo.nombre}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+      <ion-item no-lines *ngIf="showOtroObjetivo" slot="start">
+        <ion-label floating color="primary">Otro objetivo</ion-label>
+        <ion-input type="text" (ionChange)="notifyObjetivosInput($event)" class="textcolor" formControlName="Otro"
+          maxlength="50" tabindex="1"></ion-input>
+      </ion-item>
+
+    
+
+
+    <!-- <ion-item>
+      <ion-input type="date" placeholder="Dieta" [value]="dietavalue" (ionInput)="onInputDieta($event)">
+      </ion-input>
+
+
+
+    </ion-item> -->
+
+
+
+
+
+
+  </ion-list>
+   <ion-button (click)="setPreferencias()"  expand="block" fill="clear" shape="round">
+    Continuar
+  </ion-button> 
+
+  <ion-button (click)="getPersona()"  expand="block" fill="clear" shape="round">
+    traer objeto
+  </ion-button>
+
+
+
+</ion-content>

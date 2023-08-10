@@ -1,0 +1,64 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>Tus Datos</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+<ion-content>
+
+  <div class="divitext">
+    <h3>
+Ingresa tus datos personales. Así podremos diseñar mejor tu plan de alimentación.   </h3>
+  
+  </div>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>Fecha de Nacimiento</ion-label>
+      <ion-input type="date" placeholder="Nacimiento" [value]="nacimientovalue" (ionInput)="onInputNacimiento($event)">
+      </ion-input>
+
+    </ion-item>
+    <ion-item>
+      <ion-label>Peso (kg)</ion-label>
+      <ion-input type="number" placeholder="Peso" [value]="pesovalue" (ionInput)="onInputPeso($event)">
+      </ion-input>
+
+    </ion-item>
+    <ion-item>
+      <ion-label>Estatura (cm)</ion-label>
+      <ion-input type="number" placeholder="Estatura" [value]="estaturavalue" (ionInput)="onInputEstatura($event)">
+      </ion-input>
+
+    </ion-item>
+    <ion-item>
+      
+      <ion-label>Sexo</ion-label>
+      <ion-select class="genero" formControlName="bankselect" interface="popover" (ionChange)="generoChange($event)"
+        placeholder="Selecciona tu sexo">
+        <ion-select-option *ngFor="let genero of generos" [value]="genero">{{genero.nombre}}</ion-select-option>
+      </ion-select>
+
+
+    </ion-item>
+
+    <ion-item>
+      <h4>¿Cuántas horas a la semana te ejercitas?</h4>
+      <!--    ticks="true"-->
+      
+      <ion-range  class="rangopin" min="0" max="14" dualKnobs="false" snaps="true" pin="true" step="1"  value="0" [pinFormatter]="pinFormatter"
+         (ionChange)="rangoCambia($event)" [value]="actividadvalue">
+      </ion-range>
+      <!-- <p>
+        horas a la semana
+      </p> -->
+    </ion-item>
+  </ion-list>
+  <ion-button class="botoncon"    (click)="setPersona()"  [routerLink]="['/tipodieta']"  > <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+    Continuar
+  </ion-button>
+
+  <!-- <ion-button (click)="getPersona()"  expand="block" fill="clear" shape="round">
+    traer objeto
+  </ion-button> -->
+
+</ion-content>
